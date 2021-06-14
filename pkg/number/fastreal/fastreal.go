@@ -58,7 +58,7 @@ func (f Fastreal) Pow(n number.Real) number.Number {
 
 func (f Fastreal) Nthrt(n uint) (number.Number, error) {
 	if (n == 0) {
-		return nil, &number.ErrUnsupportedRoot{0}
+		return nil, &number.ErrUnsupportedRoot{N: 0}
 	} else if (n == 1) {
 		return f, nil
 	} else if (n == 2) {

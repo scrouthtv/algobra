@@ -4,3 +4,5 @@ github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614161140-8512824f04b2 h1:kv
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614161140-8512824f04b2/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50 h1:0Qm24LCVE2bfm878L9QqyNo0gNerng5ZkkptjcHM2H0=
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
+github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172711-e44d4d17a256 h1:8grF3Ai6AKbvCOf4n26U1931pHBhAZ2Pjh+pfMxMZTc=
+github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172711-e44d4d17a256/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=

@@ -10,9 +10,9 @@ func (e *ErrDivideByZero) Error() string {
 }
 
 type ErrUnsupportedRoot struct {
-	n uint
+	N uint
 }
 
 func (e *ErrUnsupportedRoot) Error() string {
-	return fmt.Sprintf("cant' calculate the %d-th root", e.n)
+	return fmt.Sprintf("cant' calculate the %d-th root", e.N)
 }
