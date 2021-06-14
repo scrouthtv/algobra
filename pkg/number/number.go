@@ -11,7 +11,9 @@ type Number interface {
 	Subtract(Number) Number
 	Multiply(Number) Number
 	Divide(Number) (Number, error)
+
 	Pow(Real) Number
+	Nthrt(uint) (Number, error)
 
 	Abs() Real
 	Equal(Number) bool

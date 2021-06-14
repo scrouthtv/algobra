@@ -56,6 +56,20 @@ func (f Fastreal) Pow(n number.Real) number.Number {
 	return New(math.Pow(float64(f), n.AsFloat()))
 }
 
+func (f Fastreal) Nthrt(n uint) (number.Number, error) {
+	if (n == 0) {
+		return nil, &number.ErrUnsupportedRoot{0}
+	} else if (n == 1) {
+		return f, nil
+	} else if (n == 2) {
+		return New(math.Sqrt(float64(f))), nil
+	} else if (n == 3) {
+		return New(math.Cbrt(float64(f))), nil
+	} else {
+		panic("not impl")
+	}
+}
+
 func (f Fastreal) Abs() number.Real {
 	if f < 0 {
 		abs := New(-float64(f))
