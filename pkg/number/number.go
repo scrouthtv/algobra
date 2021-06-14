@@ -1,12 +1,13 @@
 package number
 
 type Number interface {
-	Add(Number) (Number, error)
-	Subtract(Number) (Number, error)
-	Multiply(Number) (Number, error)
+	Add(Number) bool
+	Subtract(Number) bool
+	Multiply(Number) bool
 	Divide(Number) (Number, error)
 
-	Abs() (Real, error)
+	Abs() Real
+	Equal(Number) bool
 }
 
 // Real represents a real number.
