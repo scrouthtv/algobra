@@ -2,4 +2,7 @@ module complex
 
 go 1.16
 
-require github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50 // indirect
+require (
+	github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50 // indirect
+	github.com/scrouthtv/algobra/pkg/number/fastreal v0.0.0-20210614170355-58fa8896bc5d // indirect
+)

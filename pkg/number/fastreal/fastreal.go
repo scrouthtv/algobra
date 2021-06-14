@@ -1,5 +1,6 @@
 package fastreal
 
+import "math"
 import "strconv"
 
 import "github.com/scrouthtv/algobra/pkg/number"
@@ -50,6 +51,11 @@ func (f Fastreal) Divide(n number.Number) (number.Number, error) {
 	return n.Divide(f2)
 }
 
+func (f Fastreal) Pow(n number.Real) number.Number {
+	// they stole my special cases :(
+	return New(math.Pow(float64(f), n.AsFloat()))
+}
+
 func (f Fastreal) Abs() number.Real {
 	if f < 0 {
 		abs := New(-float64(f))
@@ -57,10 +63,6 @@ func (f Fastreal) Abs() number.Real {
 	}
 
 	return f
-}
-
-func (f Fastreal) AsFloat() float64 {
-	return float64(f)
 }
 
 func (f Fastreal) Equal(n number.Number) bool {
@@ -75,3 +77,8 @@ func (f Fastreal) Equal(n number.Number) bool {
 func (f Fastreal) String() string {
 	return strconv.FormatFloat(float64(f), 'g', -1, 64)
 }
+
+func (f Fastreal) AsFloat() float64 {
+	return float64(f)
+}
+

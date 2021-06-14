@@ -1,4 +1,6 @@
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50 h1:0Qm24LCVE2bfm878L9QqyNo0gNerng5ZkkptjcHM2H0=
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
+github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614170355-58fa8896bc5d h1:iOB5DBUKhwQ8ztr92BEc7lrZv2qhriG0k8AkJkbrNNM=
+github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614170355-58fa8896bc5d/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
 github.com/scrouthtv/algobra/pkg/number/fastreal v0.0.0-20210614170355-58fa8896bc5d h1:FtVHCs/N6p9Sb2iXDd60DBrmCRJs3prRZDPDBWBQUxs=
 github.com/scrouthtv/algobra/pkg/number/fastreal v0.0.0-20210614170355-58fa8896bc5d/go.mod h1:nlW5vLTjupjiDp8fu3jXK+/aCWf51zgKFpOORhElCs8=
