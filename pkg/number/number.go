@@ -1,9 +1,9 @@
 package number
 
 type Number interface {
-	Add(Number) bool
-	Subtract(Number) bool
-	Multiply(Number) bool
+	Add(Number) Number
+	Subtract(Number) Number
+	Multiply(Number) Number
 	Divide(Number) (Number, error)
 
 	Abs() Real
