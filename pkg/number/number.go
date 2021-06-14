@@ -6,7 +6,7 @@ type Number interface {
 	Multiply(Number) (Number, error)
 	Divide(Number) (Number, error)
 
-	Abs() (Number, error)
+	Abs() (RealNumber, error)
 }
 
 // Real represents a real number.
