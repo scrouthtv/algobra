@@ -1,5 +1,7 @@
 package fastreal
 
+import "strconv"
+
 import "github.com/scrouthtv/algobra/pkg/number"
 
 // Fastreal implements a real number using Go's float64.
@@ -51,7 +53,7 @@ func (f Fastreal) Divide(n number.Number) (number.Number, error) {
 func (f Fastreal) Abs() number.Real {
 	if f < 0 {
 		abs := New(-float64(f))
-		return &abs, nil
+		return &abs
 	}
 
 	return f
@@ -68,4 +70,8 @@ func (f Fastreal) Equal(n number.Number) bool {
 	}
 
 	return n.Equal(f)
+}
+
+func (f Fastreal) String() string {
+	return strconv.FormatFloat(float64(f), 'g', -1, 64)
 }

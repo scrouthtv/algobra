@@ -8,6 +8,8 @@ type Number interface {
 
 	Abs() Real
 	Equal(Number) bool
+
+	String() string
 }
 
 // Real represents a real number.
