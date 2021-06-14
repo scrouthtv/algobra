@@ -48,7 +48,7 @@ func (f Fastreal) Divide(n number.Number) (number.Number, error) {
 	return n.Multiply(f2)
 }
 
-func (f Fastreal) Abs(n number.Number) (number.Realnumber, error) {
+func (f Fastreal) Abs() (number.Realnumber, error) {
 	if f < 0 {
 		return New(-float64(f)), nil
 	} else {
