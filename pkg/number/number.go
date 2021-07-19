@@ -14,7 +14,6 @@ type Number interface {
 
 	Pow(Real) Number
 	Sqrt() Number
-	Nthrt(uint) (Number, error)
 
 	Abs() Real
 	Equal(Number) bool
