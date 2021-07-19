@@ -1,8 +1,9 @@
 package fastreal
 
 import (
-	"github.com/scrouthtv/algobra/pkg/number"
 	"testing"
+
+	"github.com/scrouthtv/algobra/pkg/number"
 )
 
 func TestRealMaths(t *testing.T) {
@@ -81,20 +82,6 @@ func TestRoot(t *testing.T) {
 	ans := n1.Sqrt()
 	if !ans.Equal(New(8)) {
 		t.Errorf("sqrt(%s) = %d, should be %d", n1, ans, 8)
-	}
-
-	ans, err := n1.Nthrt(2)
-	if err != nil {
-		t.Errorf("sqrt(%s) gave error: %s", n1, err)
-	} else if !ans.Equal(New(8)) {
-		t.Errorf("sqrt(%s) = %d, should be %d", n1, ans, 8)
-	}
-
-	ans, err = n1.Nthrt(3)
-	if err != nil {
-		t.Errorf("cbrt(%s) gave error: %s", n1, err)
-	} else if !ans.Equal(New(4)) {
-		t.Errorf("cbrt(%s) = %d, should be %d", n1, ans, 4)
 	}
 }
 

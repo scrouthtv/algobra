@@ -84,10 +84,6 @@ func (c *Complex) Sqrt() number.Number {
 	panic("not impl")
 }
 
-func (c *Complex) Nthrt(n uint) (number.Number, error) {
-	panic("not impl")
-}
-
 func (c *Complex) Abs() number.Real {
 	inner := c.realpart.Pow(def.NewReal(2)).Add(c.imgpart.Pow(def.NewReal(2)))
 	return inner.Sqrt().(number.Real)

@@ -103,20 +103,6 @@ func (f Fastreal) Sqrt() number.Number {
 	return New(math.Sqrt(float64(f)))
 }
 
-func (f Fastreal) Nthrt(n uint) (number.Number, error) {
-	if n == 0 {
-		return nil, &number.ErrUnsupportedRoot{N: 0}
-	} else if n == 1 {
-		return f, nil
-	} else if n == 2 {
-		return New(math.Sqrt(float64(f))), nil
-	} else if n == 3 {
-		return New(math.Cbrt(float64(f))), nil
-	} else {
-		return nil, &number.ErrUnsupportedRoot{N: n}
-	}
-}
-
 func (f Fastreal) Abs() number.Real {
 	if f < 0 {
 		abs := New(-float64(f))
