@@ -69,8 +69,29 @@ func (c *Complex) Divide(n number.Number) (number.Number, error) {
 		i, _ := c.imgpart.DivideReal(v)
 		return New(r, i), nil
 	case number.Complex:
-		return New(c.realpart.AddReal(v.RealPart()),
-			c.imgpart.AddReal(v.ImgPart())), nil
+		// a + bi   a + bi   c - di   ac - adi + cbi + bd   ac + bd   bc - ad
+		// ------ = ------ x ------ = ------------------- = ------- + ------- i
+		// c + di   c + di   c - di   cc - cdi + cdi + dd   cc + dd   cc + dd
+
+		// a = c.RealPart()
+		// b = c.ImgPart()
+		// c = v.RealPart()
+		// d = v.ImgPart()
+
+		den := v.RealPart().MultiplyReal(v.RealPart())
+		den = den.AddReal(v.ImgPart().MultiplyReal(v.ImgPart()))
+
+		r := c.realpart.MultiplyReal(v.RealPart())
+		r = r.AddReal(c.imgpart.MultiplyReal(v.ImgPart()))
+
+		i := c.imgpart.MultiplyReal(v.RealPart())
+		i = i.SubtractReal(c.realpart.MultiplyReal(v.ImgPart()))
+
+		// den != 0 because cc + dd != 0 because cc >= 0 and dd > 0
+		r, _ = r.DivideReal(den)
+		i, _ = i.DivideReal(den)
+
+		return New(r, i), nil
 	default:
 		return n.Divide(c)
 	}
