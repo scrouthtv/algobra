@@ -1,12 +1,2 @@
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614160738-9012e74f959f h1:uzU30BQ0jujB/APFxtUv0FZcbV3qXtsqGg0dtR537Xs=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614160738-9012e74f959f/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614161140-8512824f04b2 h1:kvvaPrOk8X8/CfsLJtpwvWXXv47gMvNilwQ+HO1j/vk=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614161140-8512824f04b2/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50 h1:0Qm24LCVE2bfm878L9QqyNo0gNerng5ZkkptjcHM2H0=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614163755-beab06c63f50/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172711-e44d4d17a256 h1:8grF3Ai6AKbvCOf4n26U1931pHBhAZ2Pjh+pfMxMZTc=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172711-e44d4d17a256/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172931-4139d5c8418d h1:qiaL1u66AMPwmYkk4A5//MUqm5VuQakdfS4p6eT6Tdc=
-github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172931-4139d5c8418d/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210719090637-c8a9b6a5501a h1:CL0OQ4ZpjK4sPrQMISRC394suO7BAZ/G1NuTZQDohoU=
 github.com/scrouthtv/algobra/pkg/number v0.0.0-20210719090637-c8a9b6a5501a/go.mod h1:O2bTiiSeudnv50y9pgsAMfLyWF6HrdTRF5bPGSJo4lk=
