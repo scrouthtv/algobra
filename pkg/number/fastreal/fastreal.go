@@ -1,9 +1,11 @@
 package fastreal
 
-import "math"
-import "strconv"
+import (
+	"math"
+	"strconv"
 
-import "github.com/scrouthtv/algobra/pkg/number"
+	"github.com/scrouthtv/algobra/pkg/number"
+)
 
 // Fastreal implements a real number using Go's float64.
 type Fastreal float64
@@ -57,16 +59,16 @@ func (f Fastreal) Pow(n number.Real) number.Number {
 }
 
 func (f Fastreal) Nthrt(n uint) (number.Number, error) {
-	if (n == 0) {
+	if n == 0 {
 		return nil, &number.ErrUnsupportedRoot{N: 0}
-	} else if (n == 1) {
+	} else if n == 1 {
 		return f, nil
-	} else if (n == 2) {
+	} else if n == 2 {
 		return New(math.Sqrt(float64(f))), nil
-	} else if (n == 3) {
+	} else if n == 3 {
 		return New(math.Cbrt(float64(f))), nil
 	} else {
-		panic("not impl")
+		return nil, &number.ErrUnsupportedRoot{N: n}
 	}
 }
 
@@ -95,4 +97,3 @@ func (f Fastreal) String() string {
 func (f Fastreal) AsFloat() float64 {
 	return float64(f)
 }
-
