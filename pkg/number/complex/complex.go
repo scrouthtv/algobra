@@ -17,6 +17,12 @@ func New(realpart, imgpart number.Real) *Complex {
 	return &Complex{realpart, imgpart}
 }
 
+func NewFromPolar(r, theta number.Real) *Complex {
+	a := def.NewReal(math.Cos(theta.AsFloat())).MultiplyReal(r)
+	b := def.NewReal(math.Sin(theta.AsFloat())).MultiplyReal(r)
+	return New(a, b)
+}
+
 func (c *Complex) Add(n number.Number) number.Number {
 	switch v := n.(type) {
 	case number.Real:
@@ -99,7 +105,13 @@ func (c *Complex) Divide(n number.Number) (number.Number, error) {
 }
 
 func (c *Complex) Pow(n number.Real) number.Number {
-	panic("not impl")
+	r, theta := c.Polar()
+
+	r, _ = r.Pow(n).(number.Real)
+
+	theta = theta.MultiplyReal(n)
+
+	return NewFromPolar(r, theta)
 }
 
 func (c *Complex) Sqrt() number.Number {
