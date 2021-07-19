@@ -43,14 +43,55 @@ func (f Fastreal) Multiply(n number.Number) number.Number {
 
 func (f Fastreal) Divide(n number.Number) (number.Number, error) {
 	f2, ok := n.(Fastreal)
-	if f2 == 0 {
-		return nil, &number.ErrDivideByZero{}
-	}
 	if ok {
+		if f2 == 0 {
+			return nil, &number.ErrDivideByZero{}
+		}
+
 		return f / f2, nil
 	}
 
 	return n.Divide(f2)
+}
+
+func (f Fastreal) AddReal(r number.Real) number.Real {
+	r2, ok := r.(Fastreal)
+	if ok {
+		return f + r2
+	}
+
+	return r.AddReal(f)
+}
+
+func (f Fastreal) SubtractReal(r number.Real) number.Real {
+	r2, ok := r.(Fastreal)
+	if ok {
+		return f - r2
+	}
+
+	return r.SubtractReal(f)
+}
+
+func (f Fastreal) MultiplyReal(r number.Real) number.Real {
+	r2, ok := r.(Fastreal)
+	if ok {
+		return f * r2
+	}
+
+	return r.MultiplyReal(f)
+}
+
+func (f Fastreal) DivideReal(r number.Real) (number.Real, error) {
+	r2, ok := r.(Fastreal)
+	if ok {
+		if r2 == 0 {
+			return nil, &number.ErrDivideByZero{}
+		}
+
+		return f / r2, 0
+	}
+
+	return r.DivideReal(f)
 }
 
 func (f Fastreal) Pow(n number.Real) number.Number {

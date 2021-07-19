@@ -4,8 +4,36 @@ import (
 	"testing"
 )
 
-func TestBasicMaths(t *testing.T) {
+func TestRealMaths(t *testing.T) {
 	n1, n2 := New(15), New(5)
+
+	if !n1.AddReal(n2).Equal(New(20)) {
+		t.Errorf("%s + %s = %s, should be %d", n1, n2, n1.AddReal(n2), 20)
+	}
+
+	if !n1.SubtractReal(n2).Equal(New(10)) {
+		t.Errorf("%s - %s = %s, should be %d", n1, n2, n1.SubtractReal(n2), 10)
+	}
+
+	if !n1.MultiplyReal(n2).Equal(New(75)) {
+		t.Errorf("%s * %s = %s, should be %d", n1, n2, n1.MultiplyReal(n2), 75)
+	}
+
+	ans, err := n1.DivideReal(n2)
+	if err != nil {
+		t.Errorf("%s / %s gave error: %s", n1, n2, err)
+	} else if !ans.Equal(New(3)) {
+		t.Errorf("%s / %s = %s, should be %d", n1, n2, ans, 3)
+	}
+
+	ans, err = n1.DivideReal(New(0))
+	if err == nil {
+		t.Errorf("%s / %s = %s, should be error", n1, New(0), ans)
+	}
+}
+
+func TestBasicMaths(t *testing.T) {
+	var n1, n2 number.Number = New(15), New(5)
 
 	if !n1.Add(n2).Equal(New(20)) {
 		t.Errorf("%s + %s = %s, should be %d", n1, n2, n1.Add(n2), 20)

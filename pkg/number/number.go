@@ -24,5 +24,11 @@ type Number interface {
 // Real numbers can be returned as an (approximated) float number
 type Real interface {
 	Number
+
+	AddReal(Real) Real
+	SubtractReal(Real) Real
+	MultiplyReal(Real) Real
+	DivideReal(Real) (Real, error)
+
 	AsFloat() float64
 }
