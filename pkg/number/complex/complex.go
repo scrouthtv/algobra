@@ -115,7 +115,14 @@ func (c *Complex) Pow(n number.Real) number.Number {
 }
 
 func (c *Complex) Sqrt() number.Number {
-	panic("not impl")
+	// https://math.stackexchange.com/a/44500/622559
+
+	r := c.Abs()
+	v := c.Add(r)
+
+	ans := r.Sqrt()
+	ans, _ = ans.Multiply(v).Divide(v.Abs())
+	return ans
 }
 
 func (c *Complex) Abs() number.Real {
