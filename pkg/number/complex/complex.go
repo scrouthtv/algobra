@@ -162,5 +162,9 @@ func (c *Complex) Polar() (number.Real, number.Real) {
 	realn, _ := c.realpart.DivideReal(r)
 	theta := math.Acos(realn.AsFloat())
 
+	if c.imgpart.AsFloat() < 0 {
+		theta = -theta
+	}
+
 	return r, def.NewReal(theta)
 }
