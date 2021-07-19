@@ -35,45 +35,16 @@ func TestComplexMaths(t *testing.T) {
 	if !ans.Equal(z6) {
 		t.Errorf("Divide failed: %s / %s = %s, should be %s", z1, z2, ans, z6)
 	}
-}
 
-func testPair(t *testing.T, id string, a, b, r, theta float64) {
-	t.Helper()
+	z7 := New(def.One, def.Zero)
 
-	z := New(def.NewReal(a), def.NewReal(b))
-	zfrompolar := NewFromPolar(def.NewReal(r), def.NewReal(theta))
-	rfromz, thetafromz := z.Polar()
-
-	diff := zfrompolar.Subtract(z)
-	if diff.Abs().AsFloat() > 1e-6 {
-		t.Errorf("%s Created a wrong complex from polar coordinates:", id)
-		t.Logf("%s, should be %s", zfrompolar, z)
-		t.Log("Differs by", diff.Abs())
+	if !z7.RealPart().Equal(def.One) {
+		t.Errorf("RealPart failed: real(%s) = %s, should be %d", z1, z1.RealPart(), 1)
 	}
 
-	diffr := rfromz.Subtract(def.NewReal(r))
-	difft := thetafromz.Subtract(def.NewReal(theta))
-	if diffr.Abs().AsFloat() > 1e-6 || difft.Abs().AsFloat() > 0.1648 { // 0.1648 = 12.25°
-		t.Errorf("%s Created wrong polar coordinates from complex number:", id)
-		t.Logf("%s / %s, should be %f / %f", rfromz, thetafromz, r, theta)
-		t.Logf("Differs by %s/%s", diffr, difft)
+	if !z7.ImgPart().Equal(def.Zero) {
+		t.Errorf("ImgPart failed: img(%s) = %s, should be %d", z1, z1.ImgPart(), 0)
 	}
-}
-
-func TestComplexPolar(t *testing.T) {
-	// first quadrant
-	testPair(t, "1.", 1, 1, math.Sqrt(2), math.Pi/4.0)
-
-	// second quadrant
-	// r = sqrt(13) ~ 3.60555
-	// theta = 150° = 5/6 pi
-	testPair(t, "2.", -4, 4, 4*math.Sqrt(2), 3.0/4.0*math.Pi)
-
-	// third quadrant
-	testPair(t, "3.", -3.122499, -1.8027756, math.Sqrt(13), -5.0/6.0*math.Pi)
-
-	// fourth quadrant
-	testPair(t, "4.", 0.5, -0.5, math.Sqrt(0.5), -1.0/4.0*math.Pi)
 }
 
 func TestComplexPow(t *testing.T) {
@@ -97,5 +68,65 @@ func TestComplexSqrt(t *testing.T) {
 	if diff.Abs().AsFloat() > 1e-6 {
 		t.Errorf("Sqrt failed: sqrt(%s) = %s, should be %s", z1, ans, z2)
 		t.Log("Difference:", diff.Abs())
+	}
+}
+
+func TestAbs(t *testing.T) {
+	z1 := New(def.NewReal(-5), def.NewReal(12))
+	z2 := New(def.NewReal(5), def.NewReal(0))
+	z3 := New(def.NewReal(0), def.NewReal(-3))
+
+	if !z1.Abs().Equal(def.NewReal(math.Sqrt(25 + 144))) {
+		t.Errorf("Abs 1 failed: %s, should be %s", z1.Abs(), def.NewReal(math.Sqrt(25+144)))
+	}
+
+	if !z2.Abs().Equal(def.NewReal(5)) {
+		t.Errorf("Abs 2 failed: %s, should be %d", z2.Abs(), 5)
+	}
+
+	if !z3.Abs().Equal(def.NewReal(3)) {
+		t.Errorf("Abs 3 failed: %s, should be %d", z3.Abs(), 3)
+	}
+}
+
+func TestEqual(t *testing.T) {
+	z1 := New(def.NewReal(1), def.NewReal(2))
+	z2 := New(def.NewReal(3), def.NewReal(-1))
+	z3 := New(def.NewReal(1), def.NewReal(-2))
+	z4 := New(def.NewReal(-1), def.NewReal(2))
+
+	z5 := New(def.NewReal(1), def.NewReal(0))
+	z6 := def.NewReal(1)
+
+	if !z1.Equal(z1) {
+		t.Errorf("Equal failed: %s != %s, should be true", z1, z1)
+	}
+
+	if z1.Equal(z2) {
+		t.Errorf("Equal failed: %s == %s, should be false", z1, z2)
+	}
+
+	if z1.Equal(z3) {
+		t.Errorf("Equal failed: %s == %s, should be false", z1, z3)
+	}
+
+	if z1.Equal(z4) {
+		t.Errorf("Equal failed: %s == %s, should be false", z1, z4)
+	}
+
+	if z1.Equal(z5) {
+		t.Errorf("Equal failed: %s == %s, should be false", z1, z5)
+	}
+
+	if !z5.Equal(z6) {
+		t.Errorf("Equal failed: %s != %s, should be true", z5, z6)
+	}
+}
+
+func TestConv(t *testing.T) {
+	z := New(def.NewReal(12.517829), def.NewReal(0))
+
+	if z.String() != "12.517829 + 0i" {
+		t.Errorf("%s.String() = %s, should be %s", z, z.String(), "12.517829 + 0i")
 	}
 }
