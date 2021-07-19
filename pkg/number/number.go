@@ -20,7 +20,7 @@ type Number interface {
 }
 
 // Real represents a real number.
-// Real numbers can be returned as an (approximated) float number
+// Real numbers can be returned as an (approximated) float number.
 type Real interface {
 	Number
 

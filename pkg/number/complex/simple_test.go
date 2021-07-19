@@ -9,6 +9,8 @@ import (
 )
 
 func TestComplexMaths(t *testing.T) {
+	t.Parallel()
+
 	var z1 number.Complex = New(def.NewReal(1), def.NewReal(3))
 	z2 := New(def.NewReal(0), def.NewReal(-2))
 	/* z1 + z2 = */ z3 := New(def.NewReal(1), def.NewReal(1))
@@ -32,6 +34,7 @@ func TestComplexMaths(t *testing.T) {
 	if err != nil {
 		t.Errorf("Divide failed: %s / %s failed with error %ss, should be %s", z1, z2, err.Error(), z6)
 	}
+
 	if !ans.Equal(z6) {
 		t.Errorf("Divide failed: %s / %s = %s, should be %s", z1, z2, ans, z6)
 	}
@@ -48,6 +51,8 @@ func TestComplexMaths(t *testing.T) {
 }
 
 func TestComplexPow(t *testing.T) {
+	t.Parallel()
+
 	z1 := New(def.NewReal(3), def.NewReal(-2))
 	n1 := def.NewReal(6)
 	/* z1 ^ n1 = */ z2 := New(def.NewReal(-2035), def.NewReal(828))
@@ -60,6 +65,8 @@ func TestComplexPow(t *testing.T) {
 }
 
 func TestComplexSqrt(t *testing.T) {
+	t.Parallel()
+
 	z1 := New(def.NewReal(-5), def.NewReal(12))
 	/* sqrt(z1) = */ z2 := New(def.NewReal(2), def.NewReal(3))
 
@@ -72,6 +79,8 @@ func TestComplexSqrt(t *testing.T) {
 }
 
 func TestAbs(t *testing.T) {
+	t.Parallel()
+
 	z1 := New(def.NewReal(-5), def.NewReal(12))
 	z2 := New(def.NewReal(5), def.NewReal(0))
 	z3 := New(def.NewReal(0), def.NewReal(-3))
@@ -90,6 +99,8 @@ func TestAbs(t *testing.T) {
 }
 
 func TestEqual(t *testing.T) {
+	t.Parallel()
+
 	z1 := New(def.NewReal(1), def.NewReal(2))
 	z2 := New(def.NewReal(3), def.NewReal(-1))
 	z3 := New(def.NewReal(1), def.NewReal(-2))
@@ -124,6 +135,8 @@ func TestEqual(t *testing.T) {
 }
 
 func TestConv(t *testing.T) {
+	t.Parallel()
+
 	z := New(def.NewReal(12.517829), def.NewReal(0))
 
 	if z.String() != "12.517829 + 0i" {

@@ -20,6 +20,7 @@ func New(realpart, imgpart number.Real) *Complex {
 func NewFromPolar(r, theta number.Real) *Complex {
 	a := def.NewReal(math.Cos(theta.AsFloat())).MultiplyReal(r)
 	b := def.NewReal(math.Sin(theta.AsFloat())).MultiplyReal(r)
+
 	return New(a, b)
 }
 
@@ -54,12 +55,12 @@ func (c *Complex) Multiply(n number.Number) number.Number {
 	case number.Complex:
 		//   - c -      - v -
 		// (a + bi) * (c + di) = (ac - bd) + (ad + bc)i
-		real := c.realpart.MultiplyReal(v.RealPart())                 // ac
-		real = real.SubtractReal(c.imgpart.MultiplyReal(v.ImgPart())) // -bd
-		img := c.realpart.MultiplyReal(v.ImgPart())                   // ad
-		img = img.AddReal(c.imgpart.MultiplyReal(v.RealPart()))       // +bc
+		r := c.realpart.MultiplyReal(v.RealPart())              // ac
+		r = r.SubtractReal(c.imgpart.MultiplyReal(v.ImgPart())) // -bd
+		i := c.realpart.MultiplyReal(v.ImgPart())               // ad
+		i = i.AddReal(c.imgpart.MultiplyReal(v.RealPart()))     // +bc
 
-		return New(real, img)
+		return New(r, i)
 	default:
 		return n.Multiply(c)
 	}
@@ -74,6 +75,7 @@ func (c *Complex) Divide(n number.Number) (number.Number, error) {
 	case number.Real:
 		r, _ := c.realpart.DivideReal(v)
 		i, _ := c.imgpart.DivideReal(v)
+
 		return New(r, i), nil
 	case number.Complex:
 		// a + bi   a + bi   c - di   ac - adi + cbi + bd   ac + bd   bc - ad

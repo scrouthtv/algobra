@@ -8,6 +8,8 @@ import (
 )
 
 func TestBasicCross(t *testing.T) {
+	t.Parallel()
+
 	a := New(def.NewReal(9), def.NewReal(12))
 	n := def.NewReal(3)
 
@@ -28,15 +30,19 @@ func TestBasicCross(t *testing.T) {
 
 	x = New(def.NewReal(3), def.NewReal(4))
 	ans, err := a.Divide(n)
+
 	if err != nil {
 		t.Errorf("Divide failed: %s / %s gave error %s, should be %s", a, n, err.Error(), x)
 	}
+
 	if !ans.Equal(x) {
 		t.Errorf("Divide failed: %s / %s = %s, should be %s", a, n, ans, x)
 	}
 }
 
 func TestBlindCross(t *testing.T) {
+	t.Parallel()
+
 	cfg := &quick.Config{}
 	quick.Check(testAllOps, cfg)
 }
@@ -51,21 +57,20 @@ func testAllOps(a, b, c float64) bool {
 
 	ansa := z.Add(n)
 	ansb := n.Add(z)
+
 	if !ansa.Equal(ansb) {
 		return false
 	}
 
 	ansa = z.Subtract(n)
 	ansb = n.Subtract(z)
+
 	if !ansa.Equal(ansb) {
 		return false
 	}
 
 	ansa = z.Multiply(n)
 	ansb = n.Multiply(z)
-	if !ansa.Equal(ansb) {
-		return false
-	}
 
-	return true
+	return ansa.Equal(ansb)
 }

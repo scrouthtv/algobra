@@ -31,6 +31,8 @@ func testPair(t *testing.T, id string, a, b, r, theta float64) {
 }
 
 func TestComplexPolar(t *testing.T) {
+	t.Parallel()
+
 	// first quadrant
 	testPair(t, "1.", 1, 1, math.Sqrt(2), math.Pi/4.0)
 

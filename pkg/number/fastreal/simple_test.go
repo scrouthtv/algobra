@@ -7,6 +7,8 @@ import (
 )
 
 func TestRealMaths(t *testing.T) {
+	t.Parallel()
+
 	n1, n2 := New(15), New(5)
 
 	if !n1.AddReal(n2).Equal(New(20)) {
@@ -35,6 +37,8 @@ func TestRealMaths(t *testing.T) {
 }
 
 func TestBasicMaths(t *testing.T) {
+	t.Parallel()
+
 	var n1, n2 number.Number = New(15), New(5)
 
 	if !n1.Add(n2).Equal(New(20)) {
@@ -63,6 +67,8 @@ func TestBasicMaths(t *testing.T) {
 }
 
 func TestPow(t *testing.T) {
+	t.Parallel()
+
 	n1 := New(8)
 	n2, n3 := New(2), New(3)
 
@@ -76,6 +82,7 @@ func TestPow(t *testing.T) {
 }
 
 func TestRoot(t *testing.T) {
+	t.Parallel()
 
 	n1 := New(64)
 
@@ -86,6 +93,8 @@ func TestRoot(t *testing.T) {
 }
 
 func TestAbs(t *testing.T) {
+	t.Parallel()
+
 	n1, n2, n3 := New(20), New(-12), New(12)
 
 	if !n1.Abs().Equal(n1) {
@@ -98,6 +107,8 @@ func TestAbs(t *testing.T) {
 }
 
 func TestConv(t *testing.T) {
+	t.Parallel()
+
 	n := New(12.517829)
 
 	if n.AsFloat() != 12.517829 {
