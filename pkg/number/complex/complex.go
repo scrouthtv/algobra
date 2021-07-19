@@ -2,6 +2,7 @@ package complex
 
 import (
 	"fmt"
+	"math"
 
 	"github.com/scrouthtv/algobra/pkg/number"
 	"github.com/scrouthtv/algobra/pkg/number/def"
@@ -134,5 +135,13 @@ func (c *Complex) ImgPart() number.Real {
 }
 
 func (c *Complex) Polar() (number.Real, number.Real) {
-	panic("not impl")
+	r := c.Abs()
+	if r.Equal(def.Zero) {
+		return def.Zero, def.Zero
+	}
+
+	realn, _ := c.realpart.DivideReal(r)
+	theta := math.Acos(realn.AsFloat())
+
+	return r, def.NewReal(theta)
 }

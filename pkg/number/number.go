@@ -38,7 +38,7 @@ type Complex interface {
 	RealPart() Real
 	ImgPart() Real
 
-	// Polar returns the polar coordinates (r, phi)
+	// Polar returns the polar coordinates (r, theta)
 	// of the complex number.
 	Polar() (Real, Real)
 }
