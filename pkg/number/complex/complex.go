@@ -118,10 +118,16 @@ func (c *Complex) Sqrt() number.Number {
 	// https://math.stackexchange.com/a/44500/622559
 
 	r := c.Abs()
+
+	if r.Equal(def.Zero) {
+		return def.Zero
+	}
+
 	v := c.Add(r)
 
 	ans := r.Sqrt()
 	ans, _ = ans.Multiply(v).Divide(v.Abs())
+
 	return ans
 }
 

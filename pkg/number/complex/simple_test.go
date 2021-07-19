@@ -75,3 +75,27 @@ func TestComplexPolar(t *testing.T) {
 	// fourth quadrant
 	testPair(t, "4.", 0.5, -0.5, math.Sqrt(0.5), -1.0/4.0*math.Pi)
 }
+
+func TestComplexPow(t *testing.T) {
+	z1 := New(def.NewReal(3), def.NewReal(-2))
+	n1 := def.NewReal(6)
+	/* z1 ^ n1 = */ z2 := New(def.NewReal(-2035), def.NewReal(828))
+
+	diff := z1.Pow(n1).Subtract(z2)
+	if diff.Abs().AsFloat() > 1e-6 {
+		t.Errorf("Pow failed: %s ^ %s = %s, should be %s", z1, n1, z1.Pow(n1), z2)
+		t.Log("Difference:", diff)
+	}
+}
+
+func TestComplexSqrt(t *testing.T) {
+	z1 := New(def.NewReal(-5), def.NewReal(12))
+	/* sqrt(z1) = */ z2 := New(def.NewReal(2), def.NewReal(3))
+
+	ans := z1.Sqrt()
+	diff := ans.Subtract(z2)
+	if diff.Abs().AsFloat() > 1e-6 {
+		t.Errorf("Sqrt failed: sqrt(%s) = %s, should be %s", z1, ans, z2)
+		t.Log("Difference:", diff.Abs())
+	}
+}

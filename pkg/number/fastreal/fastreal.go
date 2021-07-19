@@ -20,7 +20,7 @@ func (f Fastreal) Add(n number.Number) number.Number {
 		return f + f2
 	}
 
-	return n.Add(f2)
+	return n.Add(f)
 }
 
 func (f Fastreal) Subtract(n number.Number) number.Number {
@@ -29,7 +29,7 @@ func (f Fastreal) Subtract(n number.Number) number.Number {
 		return f - f2
 	}
 
-	return n.Subtract(f2)
+	return n.Subtract(f)
 }
 
 func (f Fastreal) Multiply(n number.Number) number.Number {
@@ -38,7 +38,7 @@ func (f Fastreal) Multiply(n number.Number) number.Number {
 		return f * f2
 	}
 
-	return n.Multiply(f2)
+	return n.Multiply(f)
 }
 
 func (f Fastreal) Divide(n number.Number) (number.Number, error) {
@@ -51,7 +51,7 @@ func (f Fastreal) Divide(n number.Number) (number.Number, error) {
 		return f / f2, nil
 	}
 
-	return n.Divide(f2)
+	return n.Divide(f)
 }
 
 func (f Fastreal) AddReal(r number.Real) number.Real {
