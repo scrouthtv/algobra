@@ -1,4 +1,4 @@
-package number
+package def
 
 import "github.com/scrouthtv/algobra/pkg/number"
 import "github.com/scrouthtv/algobra/pkg/number/fastreal"

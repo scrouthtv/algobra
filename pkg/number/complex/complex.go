@@ -3,7 +3,7 @@ package complex
 import "fmt"
 
 import "github.com/scrouthtv/algobra/pkg/number"
-import "github.com/scrouthtv/algobra/pkg/number/impl"
+import "github.com/scrouthtv/algobra/pkg/number/def"
 
 type Complex struct {
 	realpart number.Real
@@ -28,7 +28,7 @@ func (c *Complex) Add(n number.Number) (number.Number) {
 
 func (c *Complex) Abs() Real {
 	inner := c.realpart.Pow(2).Add(c.imgpart.Pow(2))
-	return impl.NewReal(
+	return def.NewReal(inner.Nthrt(2))
 }
 
 func (c *Complex) String() string {
