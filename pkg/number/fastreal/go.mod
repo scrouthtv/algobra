@@ -2,4 +2,4 @@ module github.com/scrouthtv/algobra/pkg/number/fastreal
 
 go 1.16
 
-require github.com/scrouthtv/algobra/pkg/number v0.0.0-20210614172931-4139d5c8418d // indirect
+require github.com/scrouthtv/algobra/pkg/number v0.0.0-20210719090637-c8a9b6a5501a // indirect

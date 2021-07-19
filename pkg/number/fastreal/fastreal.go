@@ -88,7 +88,7 @@ func (f Fastreal) DivideReal(r number.Real) (number.Real, error) {
 			return nil, &number.ErrDivideByZero{}
 		}
 
-		return f / r2, 0
+		return f / r2, nil
 	}
 
 	return r.DivideReal(f)

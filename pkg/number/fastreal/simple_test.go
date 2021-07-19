@@ -2,6 +2,7 @@ package fastreal
 
 import (
 	"testing"
+	"github.com/scrouthtv/algobra/pkg/number"
 )
 
 func TestRealMaths(t *testing.T) {
