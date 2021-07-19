@@ -49,18 +49,23 @@ func TestRoot(t *testing.T) {
 
 	n1 := New(64)
 
+	ans := n1.Sqrt()
+	if !ans.Equal(New(8)) {
+		t.Errorf("sqrt(%s) = %d, should be %d", n1, ans, 8)
+	}
+
 	ans, err := n1.Nthrt(2)
 	if err != nil {
-		t.Errorf("%s ^ %d gave error: %s", n1, 2, err)
+		t.Errorf("sqrt(%s) gave error: %s", n1, err)
 	} else if !ans.Equal(New(8)) {
-		t.Errorf("%s ^ %d = %d, should be %d", n1, 2, ans, 8)
+		t.Errorf("sqrt(%s) = %d, should be %d", n1, ans, 8)
 	}
 
 	ans, err = n1.Nthrt(3)
 	if err != nil {
-		t.Errorf("%s ^ %d gave error: %s", n1, 3, err)
+		t.Errorf("cbrt(%s) gave error: %s", n1, err)
 	} else if !ans.Equal(New(4)) {
-		t.Errorf("%s ^ %d = %d, should be %d", n1, 3, ans, 4)
+		t.Errorf("cbrt(%s) = %d, should be %d", n1, ans, 4)
 	}
 }
 

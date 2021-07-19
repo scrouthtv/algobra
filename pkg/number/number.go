@@ -13,6 +13,7 @@ type Number interface {
 	Divide(Number) (Number, error)
 
 	Pow(Real) Number
+	Sqrt() Number
 	Nthrt(uint) (Number, error)
 
 	Abs() Real

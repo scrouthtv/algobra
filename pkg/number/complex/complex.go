@@ -7,20 +7,20 @@ import "github.com/scrouthtv/algobra/pkg/number/def"
 
 type Complex struct {
 	realpart number.Real
-	imgpart number.Real
+	imgpart  number.Real
 }
 
 func New(realpart, imgpart number.Real) *Complex {
 	return &Complex{realpart, imgpart}
 }
 
-func (c *Complex) Add(n number.Number) (number.Number) {
-	switch (n.(type)) {
+func (c *Complex) Add(n number.Number) number.Number {
+	switch v := n.(type) {
 	case number.Real:
-		return New(c.realpart.Add(n.(number.Real)), c.imgpart)
-	case number.Complex:
-		return New(c.realpart.Add(n.(*number.Complex).realpart),
-			c.imgpart.Add(n.(*number.Complex).imgpart))
+		return New(c.realpart.Add(v), c.imgpart)
+	case *number.Complex:
+		return New(c.realpart.Add(v.realpart),
+			c.imgpart.Add(v.imgpart))
 	default:
 		return n.Add(c)
 	}

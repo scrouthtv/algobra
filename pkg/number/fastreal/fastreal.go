@@ -58,6 +58,10 @@ func (f Fastreal) Pow(n number.Real) number.Number {
 	return New(math.Pow(float64(f), n.AsFloat()))
 }
 
+func (f Fastreal) Sqrt() number.Number {
+	return New(math.Sqrt(float64(f)))
+}
+
 func (f Fastreal) Nthrt(n uint) (number.Number, error) {
 	if n == 0 {
 		return nil, &number.ErrUnsupportedRoot{N: 0}
