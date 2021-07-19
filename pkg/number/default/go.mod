@@ -1,4 +1,4 @@
-module github.com/scrouthtv/pkg/number/default
+module github.com/scrouthtv/algobra/pkg/number/default
 
 go 1.16
 
